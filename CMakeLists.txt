@@ -46,6 +46,17 @@ if(WIN32 AND NOT MINGW)
   set(CMAKE_MINSIZEREL_POSTFIX "s" CACHE STRING "Add postfix to target for MinSizeRel build")
 endif()
 
+
+# Uncomment the following 6 lines to generate codes compatible with multiple GPU SM architectures. Your device's
+#  architecture can be found under CUDA Capability version number of deviceQuery. The following lines will generate 
+#  binaries compatible with all cards of versions 6.0,6.1 and 6.2. Reference: https://en.wikipedia.org/wiki/CUDA#GPUs_supported
+#--set(CUDA_NVCC_FLAGS
+#${CUDA_NVCC_FLAGS};
+#	-gencode arch=compute_60,code=sm_60
+#	-gencode arch=compute_61,code=sm_61
+#	-gencode arch=compute_62,code=sm_62
+#)                  
+
 # ---[ special maintainer mode
 set(CMAKE_CXX_FLAGS_MAINTAINER "-pedantic -Wno-variadic-macros -Weffc++ -Wno-long-long" CACHE STRING
     "Flags used by the C++ compiler during maintainer builds."
